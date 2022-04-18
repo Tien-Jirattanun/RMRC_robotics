@@ -27,19 +27,26 @@ void loop() {
   }
   else{
     
-    if(x < 515){
-      motor1 = (x-515)/2;
+    if(x >= 515 && y >= 509){
+        motor1 = (x-515)/2;
+        motor2 = (x-509)/2;
     }
-    else if(x > 515){
-      motor1 = (515-x)/2;
-    }
+    else{
+      if(x < 515){
+        motor1 = (x-515)/2;
+      }
+      else if(x > 515){
+        motor1 = (515-x)/2;
+      }
 
-    if(y < 509){
-      motor2 = (x-509)/2;
+      if(y < 509){
+        motor2 = (x-509)/2;
+      }
+      else if(y > 509){
+        motor2 = (509-x)/2;
+      }
     }
-    else if(y > 509){
-      motor2 = (509-x)/2;
-    }
+    
     
     //motor1 = (x-515)/2;
     //motor2 = (x-509)/2;
