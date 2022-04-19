@@ -50,6 +50,13 @@ void moveRight(){
   digitalWrite(MOTOR2_PIN2, HIGH);
 }
 
+void moveBackward(){
+  digitalWrite(MOTOR1_PIN1, LOW);
+  digitalWrite(MOTOR1_PIN2, HIGH);
+  digitalWrite(MOTOR2_PIN1, LOW);
+  digitalWrite(MOTOR2_PIN2, HIGH);
+}
+
 void motorStop(){
   digitalWrite(MOTOR1_PIN1, LOW);
   digitalWrite(MOTOR1_PIN2, LOW);
