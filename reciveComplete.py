@@ -14,5 +14,5 @@ client.loop_start()
 client.subscribe("JOYSTICK")
 client.on_message=on_message 
 
-time.sleep(30)
+time.sleep(300)
 client.loop_stop()
