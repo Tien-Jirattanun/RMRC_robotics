@@ -2,8 +2,6 @@ import sys
 import pygame
 from pygame.locals import *
 import paho.mqtt.client as mqtt 
-from random import uniform
-import time
 
 mqttBroker ="mqtt.eclipseprojects.io" 
 client = mqtt.Client("Joystick_Inside")
