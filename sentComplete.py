@@ -21,22 +21,6 @@ while True:
         # When the button ABXY down
         if event.type == JOYBUTTONDOWN:
             message = str(event)
-            if event.button == 0:
-                message = "button 'A' press"
-            elif event.button == 1:
-                message = "button 'B' press"
-            elif event.button == 2:
-                message = "button 'X' press"
-            elif event.button == 3:
-                message = "button 'Y' press"
-            elif event.button == 6:
-                message = "button 'back' press"
-            elif event.button == 7:
-                message = "button 'Right' press"
-            elif event.button == 8:
-                message = "Left joy button"
-            elif event.button == 9:
-                message = "Right joy button"
 
         # When the button ABXY up
         if event.type == JOYBUTTONUP:
@@ -62,4 +46,3 @@ while True:
         print("Just published " + str(message) + " to topic JOYSTICK")
 
     clock.tick(60)
-    
