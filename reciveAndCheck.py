@@ -9,6 +9,10 @@ GPIO.setup(19, GPIO.OUT)
 GPIO.setup(26, GPIO.OUT)
 
 message = ""
+axis = 0
+valueJoy = 0
+valueArrow = ""
+button = 0
 
 def on_message(client, userdata, message):
     print(str(message.payload.decode("utf-8")))
