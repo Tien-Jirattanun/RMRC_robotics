@@ -16,7 +16,7 @@ PIN_PWM2 = 13
 DutyCycle = 0
 Freq = 500
 
-#general setup
+#PINs setup
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(PIN_IN1 ,GPIO.OUT)
 GPIO.setup(PIN_IN2 ,GPIO.OUT)
