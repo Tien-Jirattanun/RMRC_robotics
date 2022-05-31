@@ -1,17 +1,17 @@
 void moveForward(int speed){
   Serial.print("forward");
-  ax12a.turn(12, LEFT, speed);
-  ax12a.turn(5, RIGHT, speed);
-  ax12a.turn(10, LEFT, speed);
-  ax12a.turn(13, RIGHT, speed);
+  ax12a.turn(FL, LEFT, speed);
+  ax12a.turn(FR, RIGHT, speed);
+  ax12a.turn(RL, LEFT, speed);
+  ax12a.turn(RR, RIGHT, speed);
 }
 
 void moveBackward(int speed){
   Serial.print("backward");
-  ax12a.turn(12, RIGHT, speed);
-  ax12a.turn(5, LEFT, speed);
-  ax12a.turn(10, RIGHT, speed);
-  ax12a.turn(13, LEFT, speed);
+  ax12a.turn(FL, RIGHT, speed);
+  ax12a.turn(FR, LEFT, speed);
+  ax12a.turn(RL, RIGHT, speed);
+  ax12a.turn(RR, LEFT, speed);
 }
 
 void moveRight(int speed){
@@ -31,30 +31,27 @@ void moveLeft(int speed){
   
 }
 
-void armPush(){
+void armBegin(){
   
+  armOne = 800;
+  armTwo = 155
+  
+  ax12a.move(BASE_ARM, baseArm);
+  ax12a.move(ARM_ONE, armOne);
+  ax12a.move(ARM_TWO, armTwo);
+  ax12a.move(ROTATION_ARM, rotationArm);
+  ax12a.move(GRIB_ARM, gribArm);
+  delay(20);
 }
 
-void armPull(){
-  
+void baseLeft(){
+  baseArm = baseArm + 2;
+  ax12a.move(BASE_ARM, baseArm)
+  delay(5);
 }
 
-void armOpen(){
-  
-}
-
-void gribOpen(){
-  
-}
-
-void gribClose(){
-  
-}
-
-void armLeft(){
-  
-}
-
-void armRight(){
-  
+void baseRight(){
+  baseArm = baseArm - 2;
+  ax12a.move(BASE_ARM, baseArm)
+  delay(5);
 }

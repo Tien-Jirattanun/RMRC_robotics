@@ -3,7 +3,6 @@
 #include <sensor_msgs/Joy.h>
 #include "Arduino.h"
 #include "AX12A.h"
-#include <Servo.h>
 
 #define DirectionPin (10u)
 #define BuadRate (1000000ul)
@@ -13,9 +12,18 @@
 #define RL (10u)
 #define RR (13u)
 //servo mode
+#define BASE_ARM (14u)
+#define ARM_ONE  (15u)
+#define ARM_TWO  (16u)
+#define ROTATION_ARM (17u)
+#define GRIB_ARM (18u)
 
-Servo servoGrib;
-Servo servoSpin;
+//ax12a variable
+int baseVal = 512;
+int armOne = 512;
+int armTwo = 512;
+int rotationArm = 512;
+int gribArm = 512;
 
 //ros setup
 ros::NodeHandle nh;
@@ -58,12 +66,14 @@ ros::Subscriber <sensor_msgs::Joy> Motor("/joy_orig", roverCallBack);
 void setup()
 {
   Serial.begin(9600);
-  ax12a.begin(BuadRate, DirectionPin, &Serial3);
+  ax12a.begin(BuadRate, DirectionPin, &Serial2);
   ax12a.setEndless(FL, ON);
   ax12a.setEndless(FR, ON);
   ax12a.setEndless(RL, ON);
   ax12a.setEndless(RR, ON);
 
+  armBegin();
+  
   nh.getHardware()->setBaud(500000);
   nh.initNode();
   nh.subscribe(Motor);
