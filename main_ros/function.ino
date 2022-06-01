@@ -33,8 +33,8 @@ void moveLeft(int speed){
 
 void armBegin(){
   
-  armOne = 800;
-  armTwo = 155
+  armOne = 840;
+  armTwo = 200;
   
   ax12a.move(BASE_ARM, baseArm);
   ax12a.move(ARM_ONE, armOne);
