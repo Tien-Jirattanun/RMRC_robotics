@@ -46,12 +46,18 @@ void armBegin(){
 
 void baseLeft(){
   baseArm = baseArm + 2;
-  ax12a.move(BASE_ARM, baseArm)
-  delay(5);
+  if(baseArm > 1023){
+    baseArm = 1023;
+  }
+  ax12a.move(BASE_ARM, baseArm);
+  delay(5); 
 }
 
 void baseRight(){
   baseArm = baseArm - 2;
-  ax12a.move(BASE_ARM, baseArm)
+  if(baseArm < 0){
+    baseArm = 0;
+  }
+  ax12a.move(BASE_ARM, baseArm);
   delay(5);
 }

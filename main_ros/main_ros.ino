@@ -19,7 +19,7 @@
 #define GRIB_ARM (18u)
 
 //ax12a variable
-int baseVal = 512;
+int baseArm = 512;
 int armOne = 512;
 int armTwo = 512;
 int rotationArm = 512;
