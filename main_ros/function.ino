@@ -115,3 +115,16 @@ void armThreeLeft(){
   ax12a.move(ARM_THREE, armThree);
   delay(5);
 }
+
+void rotationArmGo(){
+  rotationArm = 1023;
+  ax12a.move(ROTATION_ARM, rotationArm);
+  delay(5);
+}
+
+void rotationArmBack(){
+  rotationArm = 512;
+  ax12a.move(ROTATION_ARM, rotationArm);
+  delay(5);
+  
+}
