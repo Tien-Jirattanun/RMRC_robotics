@@ -15,6 +15,7 @@
 #define BASE_ARM (14u)
 #define ARM_ONE  (15u)
 #define ARM_TWO  (16u)
+#define ARM_THREE (19u)
 #define ROTATION_ARM (17u)
 #define GRIB_ARM (18u)
 
@@ -22,6 +23,7 @@
 int baseArm = 512;
 int armOne = 512;
 int armTwo = 512;
+int armThree = 512;
 int rotationArm = 512;
 int gribArm = 512;
 
@@ -66,7 +68,7 @@ ros::Subscriber <sensor_msgs::Joy> Motor("/joy_orig", roverCallBack);
 void setup()
 {
   Serial.begin(9600);
-  ax12a.begin(BuadRate, DirectionPin, &Serial2);
+  ax12a.begin(BuadRate, DirectionPin, &Serial);
   ax12a.setEndless(FL, ON);
   ax12a.setEndless(FR, ON);
   ax12a.setEndless(RL, ON);

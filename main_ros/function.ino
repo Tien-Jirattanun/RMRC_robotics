@@ -61,3 +61,57 @@ void baseRight(){
   ax12a.move(BASE_ARM, baseArm);
   delay(5);
 }
+
+void armOneRight(){
+  armOne = armOne + 2;
+  if(armOne > 1023){
+    armOne = 1023;
+  }
+  ax12a.move(ARM_ONE, armOne);
+  delay(5);
+}
+
+void armOneLeft(){
+  armOne = armOne - 2;
+  if(armOne < 0){
+    armOne = 0;
+  }
+  ax12a.move(ARM_ONE, armOne);
+  delay(5);
+}
+
+void armTwoRight(){
+  armTwo = armTwo + 2;
+  if(armTwo > 1023){
+    armTwo = 1023;
+  }
+  ax12a.move(ARM_TWO, armTwo);
+  delay(5);
+}
+
+void armTwoLeft(){
+  armTwo = armTwo - 2;
+  if(armTwo < 0){
+    armTwo = 0;
+  }
+  ax12a.move(ARM_Two, armTwo);
+  delay(5);
+}
+
+void armThreeRight(){
+  armThree = armThree + 2;
+  if(armThree > 1023){
+    armThree = 1023;
+  }
+  ax12a.move(ARM_THREE, armThree);
+  delay(5);
+}
+
+void armThreeLeft(){
+  armThree = armThree - 2;
+  if(armThree < 0){
+    armThree = 0;
+  }
+  ax12a.move(ARM_THREE, armThree);
+  delay(5);
+}
