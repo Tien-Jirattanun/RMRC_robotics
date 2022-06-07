@@ -15,11 +15,9 @@
 #define BASE_ARM (14u)
 #define ARM_ONE  (15u)
 #define ARM_TWO  (16u)
-<<<<<<< Updated upstream
 #define ARM_THREE (19u)
 =======
 #define ARM_Three (9u)
->>>>>>> Stashed changes
 #define ROTATION_ARM (17u)
 #define GRIB_ARM (18u)
 
@@ -42,30 +40,79 @@ int speed;
 
 void roverCallBack(const sensor_msgs::Joy& joy_orig)
 {
-  double x = joy_orig.axes[1];
-  double z = joy_orig.axes[0];
+
+//---------------variable zone---------------
+
+  double joyX = joy_orig.axes[1];
+  double joyZ = joy_orig.axes[0];
+  double LT = joy_orig.axes[2];
+  double RT = joy_orig.axes[5];
+  bool LB = joy_orig.buttons[4];
+  bool RB = joy_orig.buttons[5];
+
+
+//analog to digital converter
+
+  if(LT == 1){
+    LT = 0; 
+  }
+  else if(LT > 0){
+    LT = 1;
+  }
+  
+  if(RT == 1){
+    RT = 0;
+  }
+  else if(RT > 0){
+    RT = 1;
+  }
+
+//---------------move zone---------------
 
   //move forward
-  if(x > 0 && z == 0){
-    speed = x * 100;
+  if(joyX > 0 && joyZ == 0){
+    speed = joyX * 100;
     moveForward(speed);
   }
   //move backward
-  else if(x < 0 && z == 0){
-    speed = abs(x * 100);
+  else if(joyX < 0 && joyZ == 0){
+    speed = abs(joyX * 100);
     moveBackward(speed);
     
   }
   //turn left
-  else if(x == 0 && z > 0){
-    speed = y * 100;
+  else if(joyX == 0 && joyZ > 0){
+    speed = jozZ * 100;
     moveLeft(speed);
   }
   //turn right
-  else if(x == 0 && z < 0){
-    speed = y * 100;
+  else if(joyX == 0 && joyZ < 0){
+    speed = joyZ * 100;
     moveRight(speed);
   }
+
+//---------------arm zone---------------
+
+  //grib close
+  if(LB == 1 && RB == 0){
+    gribArmClose();
+  }
+  //grib open
+  else if(LB == 0 && RB == 1){
+    gribArmOpen();
+  }
+
+  //base left
+  if(LT == 1 && RT == 0){
+    baseLeft();
+  }
+  else (LT == 0 && RT == 1){
+    baseRight();
+  }
+
+  
+
+  
 }
 
 ros::Subscriber <sensor_msgs::Joy> Motor("/joy_orig", roverCallBack);

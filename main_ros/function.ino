@@ -129,3 +129,15 @@ void rotationArmBack(){
   ax12a.move(ROTATION_ARM, rotationArm);
   delay(5);
 }
+
+void gribArmClose(){
+  gribArm = 512;
+  ax12a.move(GRIB_ARM, gribArm);
+  delay(5);
+}
+
+void gribArmOpen(){
+  gribArm = 1023;
+  ax12a.move(GRIB_ARM, gribArm);
+  delay(5);
+}
