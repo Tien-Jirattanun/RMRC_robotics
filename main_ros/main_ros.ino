@@ -8,9 +8,9 @@
 #define BuadRate (1000000ul)
 //wheel mode
 #define FL (12u) 
-#define FR (5u)
-#define RL (10u)
-#define RR (13u)
+#define FR (10u)
+#define RL (13u)
+#define RR (5u)
 //servo mode
 #define BASE_ARM (14u)
 #define ARM_ONE  (15u)
