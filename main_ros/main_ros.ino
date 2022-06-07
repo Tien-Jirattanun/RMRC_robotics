@@ -15,9 +15,7 @@
 #define BASE_ARM (14u)
 #define ARM_ONE  (15u)
 #define ARM_TWO  (16u)
-#define ARM_THREE (19u)
-=======
-#define ARM_Three (9u)
+#define ARM_THREE (9u)
 #define ROTATION_ARM (17u)
 #define GRIB_ARM (18u)
 
@@ -26,13 +24,12 @@ int baseArm = 512;
 int armOne = 512;
 int armTwo = 512;
 int armThree = 512;
-int armThree = 512;
 int rotationArm = 512;
 int gribArm = 512;
 
 //ros setup
-ros::NodeHandle nh;
 
+ros::NodeHandle nh;
 sensor_msgs::Joy axe_msg;
 sensor_msgs::Joy button_msg;
 
@@ -49,8 +46,12 @@ void roverCallBack(const sensor_msgs::Joy& joy_orig)
   double RT = joy_orig.axes[5];
   bool LB = joy_orig.buttons[4];
   bool RB = joy_orig.buttons[5];
-
-
+  bool A = joy_orig.buttons[0];
+  bool B = joy_orig.buttons[1];
+  bool X = joy_orig.buttons[2];
+  bool Y = joy_orig.buttons[3]; 
+  int arrowUpDown = joy_orig.buttons[7];
+  
 //analog to digital converter
 
   if(LT == 1){
@@ -82,7 +83,7 @@ void roverCallBack(const sensor_msgs::Joy& joy_orig)
   }
   //turn left
   else if(joyX == 0 && joyZ > 0){
-    speed = jozZ * 100;
+    speed = joyZ * 100;
     moveLeft(speed);
   }
   //turn right
@@ -106,12 +107,36 @@ void roverCallBack(const sensor_msgs::Joy& joy_orig)
   if(LT == 1 && RT == 0){
     baseLeft();
   }
-  else (LT == 0 && RT == 1){
+  //base right
+  else if(LT == 0 && RT == 1){
     baseRight();
   }
 
-  
+  //arm one push(left)
+  if(B == 1 && A == 0){
+    armOneLeft();    
+  }
+  //arm one pull(right)
+  else if(B == 0 && A == 1){
+    armOneRight();
+  }
 
+  //arm two push(left)
+  if(Y == 1 && X == 0){
+    armTwoLeft();
+  }
+  //arm two pull(right)
+  else if(Y == 0 && X == 1){
+    armTwoRight();
+  }
+
+  //arm three push(left)
+  if(arrowUpDown == 1){
+    armThreeLeft();
+  }
+  else if(arrowUpDown == -1){
+    armThreeRight();
+  }
   
 }
 

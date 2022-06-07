@@ -96,7 +96,7 @@ void armTwoLeft(){
   if(armTwo < 0){
     armTwo = 0;
   }
-  ax12a.move(ARM_Two, armTwo);
+  ax12a.move(ARM_TWO, armTwo);
   delay(5);
 }
 
