@@ -15,7 +15,11 @@
 #define BASE_ARM (14u)
 #define ARM_ONE  (15u)
 #define ARM_TWO  (16u)
+<<<<<<< Updated upstream
 #define ARM_THREE (19u)
+=======
+#define ARM_Three (9u)
+>>>>>>> Stashed changes
 #define ROTATION_ARM (17u)
 #define GRIB_ARM (18u)
 
@@ -23,6 +27,7 @@
 int baseArm = 512;
 int armOne = 512;
 int armTwo = 512;
+int armThree = 512;
 int armThree = 512;
 int rotationArm = 512;
 int gribArm = 512;

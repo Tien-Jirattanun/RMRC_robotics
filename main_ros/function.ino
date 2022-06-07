@@ -35,10 +35,12 @@ void armBegin(){
   
   armOne = 840;
   armTwo = 200;
+  armThree = 0;
   
   ax12a.move(BASE_ARM, baseArm);
   ax12a.move(ARM_ONE, armOne);
   ax12a.move(ARM_TWO, armTwo);
+  ax12a.move(ARM_THREE, armThree);
   ax12a.move(ROTATION_ARM, rotationArm);
   ax12a.move(GRIB_ARM, gribArm);
   delay(20);
@@ -126,5 +128,4 @@ void rotationArmBack(){
   rotationArm = 512;
   ax12a.move(ROTATION_ARM, rotationArm);
   delay(5);
-  
 }
