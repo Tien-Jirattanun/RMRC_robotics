@@ -1,5 +1,4 @@
 void moveForward(int speed){
-  Serial.print("forward");
   ax12a.turn(FL, LEFT, speed);
   ax12a.turn(FR, RIGHT, speed);
   ax12a.turn(RL, LEFT, speed);
@@ -7,7 +6,6 @@ void moveForward(int speed){
 }
 
 void moveBackward(int speed){
-  Serial.print("backward");
   ax12a.turn(FL, RIGHT, speed);
   ax12a.turn(FR, LEFT, speed);
   ax12a.turn(RL, RIGHT, speed);
@@ -15,7 +13,6 @@ void moveBackward(int speed){
 }
 
 void moveRight(int speed){
-  Serial.print("Right");
   ax12a.turn(FL, LEFT, speed);
   ax12a.turn(FR, LEFT, speed);
   ax12a.turn(RL, LEFT, speed);
@@ -23,7 +20,6 @@ void moveRight(int speed){
 }
 
 void moveLeft(int speed){
-  Serial.print("Left");
   ax12a.turn(FL, RIGHT, speed);
   ax12a.turn(FR, RIGHT, speed);
   ax12a.turn(RL, RIGHT, speed);
@@ -33,7 +29,7 @@ void moveLeft(int speed){
 
 void armBegin(){
   
-  armOne = 840;
+  armOne = 800;
   armTwo = 200;
   armThree = 0;
   
@@ -43,7 +39,7 @@ void armBegin(){
   ax12a.move(ARM_THREE, armThree);
   ax12a.move(ROTATION_ARM, rotationArm);
   ax12a.move(GRIB_ARM, gribArm);
-  delay(20);
+  //delay(20);
 }
 
 void baseLeft(){
@@ -52,7 +48,7 @@ void baseLeft(){
     baseArm = 1023;
   }
   ax12a.move(BASE_ARM, baseArm);
-  delay(5); 
+  //delay(5); 
 }
 
 void baseRight(){
@@ -61,7 +57,7 @@ void baseRight(){
     baseArm = 0;
   }
   ax12a.move(BASE_ARM, baseArm);
-  delay(5);
+  //delay(5);
 }
 
 void armOneRight(){
@@ -70,7 +66,7 @@ void armOneRight(){
     armOne = 1023;
   }
   ax12a.move(ARM_ONE, armOne);
-  delay(5);
+  //delay(5);
 }
 
 void armOneLeft(){
@@ -79,7 +75,7 @@ void armOneLeft(){
     armOne = 0;
   }
   ax12a.move(ARM_ONE, armOne);
-  delay(5);
+  //delay(5);
 }
 
 void armTwoRight(){
@@ -88,7 +84,7 @@ void armTwoRight(){
     armTwo = 1023;
   }
   ax12a.move(ARM_TWO, armTwo);
-  delay(5);
+  //delay(5);
 }
 
 void armTwoLeft(){
@@ -97,7 +93,7 @@ void armTwoLeft(){
     armTwo = 0;
   }
   ax12a.move(ARM_TWO, armTwo);
-  delay(5);
+  //delay(5);
 }
 
 void armThreeRight(){
@@ -106,7 +102,7 @@ void armThreeRight(){
     armThree = 1023;
   }
   ax12a.move(ARM_THREE, armThree);
-  delay(5);
+  //delay(5);
 }
 
 void armThreeLeft(){
@@ -115,29 +111,29 @@ void armThreeLeft(){
     armThree = 0;
   }
   ax12a.move(ARM_THREE, armThree);
-  delay(5);
+  //delay(5);
 }
 
 void rotationArmGo(){
   rotationArm = 1023;
   ax12a.move(ROTATION_ARM, rotationArm);
-  delay(5);
+  //delay(5);
 }
 
 void rotationArmBack(){
   rotationArm = 512;
   ax12a.move(ROTATION_ARM, rotationArm);
-  delay(5);
+  //delay(5);
 }
 
 void gribArmClose(){
   gribArm = 512;
   ax12a.move(GRIB_ARM, gribArm);
-  delay(5);
+  //delay(5);
 }
 
 void gribArmOpen(){
   gribArm = 1023;
   ax12a.move(GRIB_ARM, gribArm);
-  delay(5);
+  //delay(5);
 }

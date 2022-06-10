@@ -144,16 +144,14 @@ ros::Subscriber <sensor_msgs::Joy> Motor("/joy_orig", roverCallBack);
 
 void setup()
 {
-  Serial.begin(9600);
-  ax12a.begin(BuadRate, DirectionPin, &Serial);
+  ax12a.begin(BuadRate, DirectionPin, &Serial2);
   ax12a.setEndless(FL, ON);
   ax12a.setEndless(FR, ON);
   ax12a.setEndless(RL, ON);
   ax12a.setEndless(RR, ON);
 
   armBegin();
-  
-  nh.getHardware()->setBaud(500000);
+  nh.getHardware()->setBaud(115200);
   nh.initNode();
   nh.subscribe(Motor);
 } 
